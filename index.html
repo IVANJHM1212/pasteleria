@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Pastelería IM</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="logo-area">
+          <img src="redPaste.png" alt="Logo Pastelería IM" class="logo" />
+          <span class="brand">Pastelería IM</span>
+        </div>
+
+        <div class="right-group">
+          <nav class="nav-links">
+            <a href="#productos">Productos</a>
+            <a href="#precios">Precios</a>
+          </nav>
+          <button class="cta-button" onclick="abrirModal('torta')">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-shopping-cart-icon lucide-shopping-cart"
+            >
+              <circle cx="8" cy="21" r="1" />
+              <circle cx="19" cy="21" r="1" />
+              <path
+                d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+              />
+            </svg>
+            <span>Hacer Pedido</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-left">
+          <span class="badge">🟢 Disponible para pedidos</span>
+          <h1>
+            Pasteles <span class="mint">artesanales</span><br />
+            sin premezcla
+          </h1>
+          <p>
+            Pastelería familiar donde cada producto es hecho con amor y
+            dedicación. Isabella & Máximo son la inspiración detrás de cada
+            creación.
+          </p>
+          <div class="hero-buttons">
+            <button class="cta-button" onclick="abrirModal('torta')">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-shopping-cart-icon lucide-shopping-cart"
+              >
+                <circle cx="8" cy="21" r="1" />
+                <circle cx="19" cy="21" r="1" />
+                <path
+                  d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+                />
+              </svg>
+              Hacer pedido
+            </button>
+            <a
+              class="insta-button"
+              href="https://www.instagram.com/pasteleria.im/"
+              target="_blank"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-instagram-icon lucide-instagram"
+              >
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+              </svg>
+              Ver Instagram
+            </a>
+          </div>
+          <div class="stats">
+            <div><strong>940</strong><br />Seguidores</div>
+            <div><strong>5.0 ⭐</strong><br />Calificación</div>
+            <div><strong>95</strong><br />Productos</div>
+          </div>
+        </div>
+        <div class="hero-right">
+          <!-- Aquí luego va el showcase del producto -->
+          <div class="hero-showcase">
+            <img
+              id="productImage"
+              src="assets/torta.png"
+              alt="Producto"
+              class="showcase-img"
+            />
+
+            <div class="product-card" id="productCard">
+              <h3 id="productTitle">Tortas Artesanales</h3>
+              <p id="productDesc">Hechas con amor, sin premezcla</p>
+              <div class="product-bottom">
+                <span id="productPrice">Desde $10.000</span>
+                <span id="productTime">⏱ 3 días</span>
+              </div>
+            </div>
+
+            <div class="showcase-dots">
+              <span class="dot active" onclick="changeProduct(0)"></span>
+              <span class="dot" onclick="changeProduct(1)"></span>
+              <span class="dot" onclick="changeProduct(2)"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="productos" id="productos">
+      <div class="productos-header">
+        <h2>Nuestros productos</h2>
+        <p>
+          Cada producto es único, hecho a mano con ingredientes de primera
+          calidad
+        </p>
+      </div>
+
+      <div class="productos-grid">
+        <!-- Producto 1 -->
+        <div class="producto-card">
+          <img src="assets/torta.png" alt="Torta" />
+          <div class="info">
+            <div class="top">
+              <h3>Tortas Artesanales</h3>
+              <span>⏱ 3 días</span>
+            </div>
+            <p>Hechas con amor, sin premezcla</p>
+            <div class="bottom">
+              <strong>Desde $10.000</strong>
+              <button class="btn-pedir" onclick="abrirModal('torta')">
+                Pedir
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="producto-card">
+          <img src="assets/alfajor.png" alt="Alfajor" />
+          <div class="info">
+            <div class="top">
+              <h3>Alfajores Caseros</h3>
+              <span>⏱ 2 días</span>
+            </div>
+            <p>100% caseros y al horno</p>
+            <div class="bottom">
+              <strong>Desde $2.500</strong>
+              <button class="btn-pedir" onclick="abrirModal('alfajor')">
+                Pedir
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="producto-card">
+          <img src="assets/empolvado.png" alt="Empolvado" />
+          <div class="info">
+            <div class="top">
+              <h3>Empolvados</h3>
+              <span>⏱ 1 día</span>
+            </div>
+            <p>Tradicionales y deliciosos</p>
+            <div class="bottom">
+              <strong>Desde $1.800</strong>
+              <button class="btn-pedir" onclick="abrirModal('empolvado')">
+                Pedir
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="precios" id="precios">
+      <h2 class="precios-title">Precios transparentes</h2>
+      <p class="precios-subtitle">
+        Sin sorpresas, precios justos para productos artesanales
+      </p>
+
+      <div class="precios-grid">
+        <!-- 10 personas -->
+        <div class="precio-card">
+          <div class="icono">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="45"
+              height="45"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-users-icon lucide-users"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <path d="M16 3.128a4 4 0 0 1 0 7.744" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <circle cx="9" cy="7" r="4" />
+            </svg>
+          </div>
+          <h3>10 personas</h3>
+          <p class="descripcion">Perfecto para reuniones íntimas</p>
+          <ul>
+            <li>Manjar Nuez <span>$10.000</span></li>
+            <li>Selva Negra <span>$10.000</span></li>
+            <li>Tres Leches <span>$12.000</span></li>
+          </ul>
+          <button class="btn-precio" onclick="abrirModal('torta', 10)">
+            Elegir tamaño
+          </button>
+        </div>
+
+        <!-- 15 personas -->
+        <div class="precio-card popular">
+          <div class="icono mint">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="45"
+              height="45"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-users-icon lucide-users"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <path d="M16 3.128a4 4 0 0 1 0 7.744" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <circle cx="9" cy="7" r="4" />
+            </svg>
+          </div>
+          <div class="badge">Más popular</div>
+          <h3>15 personas</h3>
+          <p class="descripcion">Ideal para celebraciones familiares</p>
+          <ul>
+            <li>Manjar Nuez <span>$13.000</span></li>
+            <li>Selva Negra <span>$13.000</span></li>
+            <li>Tres Leches <span>$15.000</span></li>
+          </ul>
+          <button
+            class="btn-precio popular-btn"
+            onclick="abrirModal('torta', 15)"
+          >
+            Elegir tamaño
+          </button>
+        </div>
+
+        <!-- 20 personas -->
+        <div class="precio-card grande">
+          <div class="icono">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="45"
+              height="45"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-users-icon lucide-users"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <path d="M16 3.128a4 4 0 0 1 0 7.744" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <circle cx="9" cy="7" r="4" />
+            </svg>
+          </div>
+          <h3><span>20 personas</span></h3>
+          <p class="descripcion">Para grandes celebraciones</p>
+          <ul>
+            <li>Todos los rellenos <span>$18.000</span></li>
+            <li>Tres Leches <span>$20.000</span></li>
+          </ul>
+          <button class="btn-precio" onclick="abrirModal('torta', 20)">
+            Elegir tamaño
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-pedido">
+      <h2>¿Listo para tu pedido?</h2>
+      <p>Usa nuestro formulario o contáctanos directamente</p>
+      <div class="cta-buttons">
+        <button onclick="abrirModal('torta')" class="btn-formulario">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-shopping-cart-icon lucide-shopping-cart"
+          >
+            <circle cx="8" cy="21" r="1" />
+            <circle cx="19" cy="21" r="1" />
+            <path
+              d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+            />
+          </svg>
+          Formulario de pedido
+        </button>
+        <a
+          href="https://wa.me/56912345678"
+          target="_blank"
+          class="btn-whatsapp"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-phone-icon lucide-phone"
+          >
+            <path
+              d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+            />
+          </svg>
+          WhatsApp directo
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <img src="redPaste.png" alt="Logo Pastelería IM" />
+          <span>Pastelería IM</span>
+        </div>
+        <div class="footer-right">
+          <p><strong>Pastelería artesanal familiar</strong></p>
+          <p>Sin premezcla • Hecho con amor • Isabella & Máximo</p>
+        </div>
+      </div>
+    </footer>
+
+    <div id="pedidoModal" class="modal hidden">
+      <div class="modal-content">
+        <button class="modal-close" onclick="cerrarModal()">×</button>
+        <h2>Hacer un pedido</h2>
+        <p>Completa los datos y te contactaremos por WhatsApp</p>
+
+        <!-- Producto -->
+        <div class="grupo">
+          <label>Tipo de producto *</label>
+          <div class="opciones-producto">
+            <label
+              ><input type="radio" name="producto" value="torta" checked />
+              Tortas Artesanales</label
+            >
+            <label
+              ><input type="radio" name="producto" value="alfajor" /> Alfajores
+              Caseros</label
+            >
+            <label
+              ><input type="radio" name="producto" value="empolvado" />
+              Empolvados</label
+            >
+          </div>
+        </div>
+
+        <!-- Tamaño (solo para tortas) -->
+        <div class="grupo" id="grupo-tamano">
+          <label>Tamaño *</label>
+          <select id="tamano">
+            <option value="">Selecciona el tamaño</option>
+            <option value="10">10 personas</option>
+            <option value="15">15 personas</option>
+            <option value="20">20 personas</option>
+          </select>
+        </div>
+
+        <!-- Relleno (solo para tortas) -->
+        <div class="grupo" id="grupo-relleno">
+          <label>Relleno *</label>
+          <select id="relleno">
+            <option value="">Selecciona el relleno</option>
+            <option value="Manjar Nuez">Manjar Nuez</option>
+            <option value="Selva Negra">Selva Negra</option>
+            <option value="Piña">Piña</option>
+            <option value="Durazno">Durazno</option>
+            <option value="Tres Leches">Tres Leches</option>
+          </select>
+        </div>
+
+        <!-- Cantidad (solo para alfajores/empolvados) -->
+        <div class="grupo hidden" id="grupo-cantidad">
+          <label>Cantidad *</label>
+          <div class="cantidad-control">
+            <button onclick="ajustarCantidad(-1)">−</button>
+            <span id="cantidad">1</span>
+            <button onclick="ajustarCantidad(1)">+</button>
+          </div>
+        </div>
+
+        <!-- Precio total -->
+        <div class="grupo" id="grupo-total">
+          <p><strong>Total:</strong> <span id="precioTotal">$0</span></p>
+        </div>
+
+        <!-- Campos del cliente -->
+        <div class="grupo">
+          <label>Fecha necesaria *</label>
+          <input type="date" id="fecha" />
+        </div>
+        <div class="grupo">
+          <label>Nombre completo *</label>
+          <input type="text" id="nombre" />
+        </div>
+        <div class="grupo">
+          <label>Teléfono *</label>
+          <input type="text" id="telefono" />
+        </div>
+
+        <!-- Botón final -->
+        <div class="grupo">
+          <button class="btn-confirmar" onclick="enviarPedido()">
+            Enviar por WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      let currentIndex = 0;
+      let interval;
+
+      function autoRotate() {
+        currentIndex = (currentIndex + 1) % products.length;
+        changeProduct(currentIndex);
+      }
+
+      // Iniciar autoplay
+      function startAutoRotate() {
+        interval = setInterval(autoRotate, 5000);
+      }
+
+      // Detener autoplay
+      function stopAutoRotate() {
+        clearInterval(interval);
+      }
+
+      // Iniciar al cargar
+      startAutoRotate();
+
+      // Pausar al hacer hover sobre el contenedor
+      const showcase = document.querySelector(".hero-showcase");
+      showcase.addEventListener("mouseenter", stopAutoRotate);
+      showcase.addEventListener("mouseleave", startAutoRotate);
+
+      const products = [
+        {
+          title: "Tortas Artesanales",
+          desc: "Hechas con amor, sin premezcla",
+          price: "Desde $10.000",
+          time: "⏱ 3 días",
+          image: "assets/torta.png",
+        },
+        {
+          title: "Alfajores Caseros",
+          desc: "100% caseros y al horno",
+          price: "Desde $2.500",
+          time: "⏱ 2 días",
+          image: "assets/alfajor.png",
+        },
+        {
+          title: "Empolvados",
+          desc: "Tradicionales y deliciosos",
+          price: "Desde $1.800",
+          time: "⏱ 1 día",
+          image: "assets/empolvado.png",
+        },
+      ];
+
+      function changeProduct(index) {
+        currentIndex = index;
+
+        const title = document.getElementById("productTitle");
+        const desc = document.getElementById("productDesc");
+        const price = document.getElementById("productPrice");
+        const time = document.getElementById("productTime");
+        const image = document.getElementById("productImage");
+
+        // Imagen: fade out, cambio, fade in
+        image.style.opacity = 0;
+        setTimeout(() => {
+          image.src = products[index].image;
+          image.onload = () => {
+            image.style.opacity = 1;
+          };
+        }, 200);
+
+        title.textContent = products[index].title;
+        desc.textContent = products[index].desc;
+        price.textContent = products[index].price;
+        time.textContent = products[index].time;
+
+        document
+          .querySelectorAll(".dot")
+          .forEach((dot) => dot.classList.remove("active"));
+        document.querySelectorAll(".dot")[index].classList.add("active");
+      }
+    </script>
+
+    <script>
+      let cantidad = 1;
+
+      function abrirModal(producto, tamanoSeleccionado = null) {
+        document.getElementById("pedidoModal").classList.remove("hidden");
+        document.querySelector(`input[value=${producto}]`).checked = true;
+        actualizarCampos(producto);
+
+        // Si se recibe tamaño como parámetro, lo seteamos automáticamente
+        if (producto === "torta" && tamanoSeleccionado) {
+          document.getElementById("tamano").value = tamanoSeleccionado;
+          calcularPrecio(); // actualiza el total automáticamente
+        }
+      }
+
+      function cerrarModal() {
+        document.getElementById("pedidoModal").classList.add("hidden");
+      }
+
+      function ajustarCantidad(valor) {
+        cantidad = Math.max(1, cantidad + valor);
+        document.getElementById("cantidad").textContent = cantidad;
+        calcularPrecio();
+      }
+
+      function actualizarCampos(producto) {
+        document.getElementById("grupo-tamano").style.display =
+          producto === "torta" ? "block" : "none";
+        document.getElementById("grupo-relleno").style.display =
+          producto === "torta" ? "block" : "none";
+        document.getElementById("grupo-cantidad").style.display =
+          producto === "torta" ? "none" : "block";
+        calcularPrecio();
+      }
+
+      function calcularPrecio() {
+        const producto = document.querySelector(
+          "input[name='producto']:checked"
+        ).value;
+        let precio = 0;
+
+        if (producto === "torta") {
+          const tamano = document.getElementById("tamano").value;
+          const relleno = document.getElementById("relleno").value;
+
+          const preciosTorta = {
+            "Manjar Nuez": { 10: 10000, 15: 13000, 20: 18000 },
+            "Selva Negra": { 10: 10000, 15: 13000, 20: 18000 },
+            Piña: { 10: 10000, 15: 13000, 20: 18000 },
+            Durazno: { 10: 10000, 15: 13000, 20: 18000 },
+            "Tres Leches": { 10: 12000, 15: 15000, 20: 20000 },
+          };
+
+          if (relleno && tamano && preciosTorta[relleno]) {
+            precio = preciosTorta[relleno][tamano];
+          }
+        }
+
+        if (producto === "alfajor") {
+          precio = 2500 * cantidad;
+        }
+
+        if (producto === "empolvado") {
+          precio = 1800 * cantidad;
+        }
+
+        document.getElementById(
+          "precioTotal"
+        ).textContent = `$${precio.toLocaleString()}`;
+      }
+
+      // Eventos para recalcular cuando cambia el tamaño o el relleno
+      document.addEventListener("DOMContentLoaded", () => {
+        document
+          .getElementById("tamano")
+          .addEventListener("change", calcularPrecio);
+        document
+          .getElementById("relleno")
+          .addEventListener("change", calcularPrecio);
+
+        // También recalcular si cambia de tipo de producto
+        document.querySelectorAll("input[name='producto']").forEach((radio) => {
+          radio.addEventListener("change", () => {
+            actualizarCampos(radio.value);
+          });
+        });
+      });
+    </script>
+
+    <script>
+      function enviarPedido() {
+        const producto = document.querySelector(
+          "input[name='producto']:checked"
+        ).value;
+        const tamano = document.getElementById("tamano").value;
+        const relleno = document.getElementById("relleno").value;
+        const cantidad = document.getElementById("cantidad").textContent;
+        const fecha = document.getElementById("fecha").value;
+        const nombre = document.getElementById("nombre").value;
+        const telefono = document.getElementById("telefono").value;
+
+        // Validaciones simples
+        if (!fecha || !nombre || !telefono) {
+          alert("Por favor completa todos los campos obligatorios.");
+          return;
+        }
+
+        let mensaje = `Hola! 👋 Me gustaría hacer un pedido:\n\n`;
+        mensaje += `🧁 Producto: ${
+          producto === "torta"
+            ? "Torta artesanal"
+            : producto === "alfajor"
+            ? "Alfajores caseros"
+            : "Empolvados"
+        }\n`;
+
+        if (producto === "torta") {
+          if (!tamano || !relleno) {
+            alert("Por favor selecciona el tamaño y el relleno.");
+            return;
+          }
+          mensaje += `🎂 Tamaño: ${tamano} personas\n`;
+          mensaje += `🍰 Relleno: ${relleno}\n`;
+        } else {
+          mensaje += `📦 Cantidad: ${cantidad} unidades\n`;
+        }
+
+        mensaje += `📅 Fecha necesaria: ${fecha}\n`;
+        mensaje += `👤 Nombre: ${nombre}\n`;
+        mensaje += `📞 Teléfono: ${telefono}`;
+
+        // Convertir a formato URL
+        const mensajeCodificado = encodeURIComponent(mensaje);
+
+        // REEMPLAZA este número por el tuyo real (sin +, con código país)
+        const numeroWhatsApp = "56953331981";
+
+        // Redirigir a WhatsApp
+        window.open(
+          `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`,
+          "_blank"
+        );
+      }
+    </script>
+  </body>
+</html>
